@@ -1,0 +1,51 @@
+
+/*3.-Media Query*/
+
+/*Donde la resolucion sea mayora 1081px*/
+@media(min-width:1081px){
+    div#menu_principal{
+        height:10%;
+        font-size: .8em;
+        vertical-align: top;
+    }
+    ul#principal li{
+        padding: .1% 2%;
+    }
+    ul#principal li img.menu, img.menudes{
+        width:40px;
+    }
+    div#menu_secundario{
+        top:10%;
+        width:10%;
+        height: 90%;
+    }
+    div#contenido_principal{
+        top:10.5%;
+        left:10%;
+        width:84%;
+        height: 85%;
+    }
+    div.resultadospost{
+	width: 90%;
+	padding:3px;
+	font-size:1.1em;
+	
+    }
+	
+}
+/*Donde la resolucion sea menor a 1080*/
+@media(max-width:1080px){
+	
+
+}
+/*Donde la resolucion sea menor a 800px*/
+@media(max-width:800px){
+	
+	
+}
+
+
+/*Donde la resolucion sea menor a 600px*/
+@media(max-width:600px){
+	
+}

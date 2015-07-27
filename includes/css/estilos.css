@@ -1,0 +1,647 @@
+/*Reseteo universal*/
+*{
+	border:0;
+	margin :0;
+	padding:0;
+	font-size:1em;
+}
+/*Cuerpo en todos los documentos*/
+body{	
+	/*background:rgb(192,192,192);*/
+	background:url("../img/mosaico.png") repeat;
+}
+/*alineacion semantica en bloque*/
+article,figcaption,figure,footer,header,hgroup,nav,section{
+	display: block;
+}
+/*Cuerpo de la pagina de instrucciones*/
+body#inst{
+padding:10% 5%;
+}
+
+/*Todos los Enlaces*/
+a.1{
+	color: #fff;
+	font-weight:bold;
+	text-decoration: none;
+}
+a{
+	color: #fff;
+	font-weight:bold;
+	text-decoration: none;
+}
+a:hover{
+	color:#3c3f42;
+}
+
+/* cuando es :hover es para cuando pasamos el mouse sobre elenlace*/
+a.1:hover{
+	color:#FFF;
+}
+
+/*Botones id boton*/
+input#boton,input.boton{
+	background: rgba(0,0,0,.3) ;
+	font-size: 24px;
+	font-family: "myriadproregular", Helvetica, Verdana;
+	display: inline-block;
+	padding: 5px 10px 6px;
+	color: #FFF;
+	text-decoration: none;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-top: 0px;border-left: 0px;
+	border-right: 0px;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor:pointer;
+	width:100%;
+	outline: none;
+}
+
+/*Pasar el mouse en los botones id boton y en los parrafos de enlace(esta mas abajo)*/
+input#boton:hover,p.enlace:hover,input.boton:hover{
+	background: rgba(0,0,0,.7) ;
+}
+
+/*Campos de texto id txt*/
+input.txt{
+	color:#577bb8;
+	font-size: 1em;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	height: 40px;
+	text-align: center;
+	width:98%;
+	font-family: "myriadproregular", Helvetica, Verdana;
+}
+
+/*parrafos de enlace*/
+p.enlace{
+	background: rgba(0,0,0,.3);
+	color: #FFF;
+	font-size:1.5em;
+	width:94%;
+	padding: 2% 2%;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.6);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	cursor:pointer;
+	text-align:center;
+}
+
+/*section Index Contenido Principal*/
+section#icp{
+	width:100%;
+	/*background:red;*/
+	padding:10% 0%;
+}
+/*Seccion Index Contenido Principal Usuarios*/
+section#icpusu{
+	width:90%;
+	padding:1% 5%;
+}
+
+/*Seccion Index Contenido General Usuarios */
+section.icgralusu{
+	/*background: rgba(255,255,255,0.3);*/
+background: rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	width:31%;
+	display:inline-block;
+	vertical-align:top;
+	padding:0 1%;
+	
+}
+section.icgralusutabla{/*index contenido general tabla*/
+	background: rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	width:20%;
+	display:inline-block;
+	vertical-align:top;
+	padding:0 1%;
+	
+}
+section.icgralusucentro{/*index contenido general centro*/
+	background: rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	width:42%;
+	display:inline-block;
+	vertical-align:top;
+	padding:0 1%;
+	
+}
+/*seccion par nombre del usuario */
+
+section#cab{
+	color:white;
+	text-align:right;
+	font-weight:bold;
+	width:100%;
+	padding:1% 0;
+	font-size:1.2em;
+}
+
+/*Seccion Index Contenido Derecha Usuarios*/
+section#icderusu{
+	background: rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	display:inline-block;
+	vertical-align:top;
+	width:66%;
+}
+section.icderusu{
+	background: rgba(255,255,255,0.3);
+	border-radius: 0.5em;
+	display:inline-block;
+	vertical-align:top;
+	width:45%;
+}
+/*section Index Contenido Izquierda*/
+section#ici{
+	background: rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	border-radius: 0.5em;
+	display:inline-block;
+	margin: 0 .5%;
+	padding:1% 1%;
+	vertical-align:top;
+	width:23%;
+}
+
+/*section Index Contenido Centro*/
+section#icc{
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	background: rgba(255,255,255,0.3);
+	display:inline-block;
+	margin: 0 .5%;
+	padding:1% 1%;
+	vertical-align:top;
+	width:51%;
+	
+}
+
+/*section Index Contenido Derecha*/
+section#icd{
+	border-radius: 0.5em;
+	background: rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	display:inline-block;
+	margin: 0 .5%;
+	padding:1% 1%;
+	vertical-align:top;
+	width:16%;
+}
+
+/*section Contenido Instrucciones*/
+section#conins{
+	background: rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	border-radius: 0.5em;
+	width:90%;
+	padding:3% 5%;
+	
+}
+/*Section para el menu*/
+section#contmenu{
+	width:90%;
+	background:rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	padding:0 5%;
+}
+section.menuicono{
+width:10%;
+vertical-align:top;
+display:inline-block;
+}
+
+/*section Menu Instrucciones*/
+section.menuins{
+	background:#4C4F53;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	width:30%;
+	text-align: center;
+	vertical-align: middle;
+	padding-top:2%;
+	vertical-align:top;
+	display:inline-block;
+	margin:1.5%;
+	
+
+}
+section.menuins2{
+	background:#4C4F53;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	width:90%;
+	text-align: center;
+	vertical-align: middle;
+	padding-top:2%;
+	padding-bottom:2%;
+	margin:1.5%;
+	
+
+}
+section.menuicoden{
+	width:100%;
+	
+}
+section.icononombre{
+	color:white;
+	font-size:1.2em;
+}
+/*secciones para el llenado*/
+section.llenacont{
+	width:100%;	
+}
+section.llena1{
+	width:30%;
+	vertical-align:top;
+	display:inline-block;
+}
+
+section.llena2{
+	width:38%;
+	padding-top:2%;
+	vertical-align:top;
+	display:inline-block;
+}
+
+
+select,select.trans{
+	width: 100%;
+	border-radius: 10px;
+	height: 40px;
+	padding:0 10%;
+	border: 1px solid #D9D9D9;
+	color:#194888;
+	margin-bottom: 10px;
+	font-size: 18px;
+	text-align:center;
+}
+select.trans{
+		background: rgba(255,255,255,.5);
+}
+
+/*Parrafo de titulo principal*/
+p.ti1{
+	background:#3c3f42;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1.2em;
+	margin: .5% 1%;
+	padding:1% 1%;
+	text-align:center;
+
+}
+p.ti12{
+	width:100%;
+	background:#3c3f42;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1.2em;
+	padding:2% 0;
+	text-align:center;
+}
+p.comen{
+	width:98%;
+	background:#3c3f42;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color:white;
+	font-size:1em;
+	padding:2% 1%;
+	text-align:center;
+
+}
+
+/*Parrafo de titulo llenar quiniela*/
+section.titulo, p.titulo{
+	background:#3c3f42;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1.2em;
+	margin: .5% 1%;
+	padding:.5% 1%;
+	text-align:center;
+
+}
+label.titulo{
+	color: #ffffff;
+	font-size:1.2em;
+}
+section.titulotrans, p.titulotrans{
+		background:rgba(60,63,66,.5);
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1.2em;
+	margin: .5% 1%;
+	padding:.5% 1%;
+	text-align:center;
+}
+/*Parrafo de titulo principal con botones*/
+p.ti11,p.tierror,p.tibien{
+	background:#3c3f42;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1.5em;
+	margin: .5% 1%;
+	padding:1% 1%;
+	vertical-align: middle;
+	text-align:center;
+
+}
+p.tierror{ color:red;}
+p.tibien{color:green;}
+p.parbl{
+	color:white;
+	font-size:1.3em;
+}
+
+/*Divicion de descripcion de instrucciones*/
+div#es{
+	background:#3c3f42;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	font-size:1em;
+	margin: 1% 1%;
+	padding:2% 1.5%;
+	text-align:justify;
+}
+
+/*Parrafo de texto o titulo secundario*/
+p.ti2{
+	background:#4c4f53;
+	border-radius: 0.5em;
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	color: #EAEAAE;
+	margin: 1% 1%;
+	padding:1% .5%;
+	text-align:center;
+	
+}
+
+/*Imagenes Logo*/
+img.icolo{
+	width:48%;
+
+}
+img.icolo2{
+	width:100%;
+
+}
+
+/*Imagenes menu instrucciones*/
+img.imgins{
+	width:30%;
+	padding:2% 2% 2% 0%;
+
+}
+
+img.navig{
+		width:10%;
+	}
+table{
+	width:100%;
+}
+section.texafu, section.texafu2{
+	text-align:center;
+	width:29%;
+	background:none;
+	display:inline-block;
+	vertical-align:top;
+	padding:1% 1%;
+
+}
+section.texafu2{
+	width:62%;
+
+}
+/*secciones paratabla general index*/
+section.log_equipo{
+	width:40%;
+	display:inline-block;
+	vertical-align:top;
+	text-align:right;
+}
+section.log_ptos{
+	width:20%;
+	background:red;
+	display:inline-block;
+	vertical-align:bottom;
+	
+}
+p.puntaje{
+	vertical-align:bottom;
+	font-size:3.5em;
+	background: #000000;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0px 3px 3px rgba(255,255,255,0.5),0px -1px 1px rgba(0,0,0,.3);
+}
+
+p.puntajecal{
+	vertical-align:bottom;
+	font-size:2em;
+	background: #000000;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0px 3px 3px rgba(0,128,0,0.5),0px -1px 1px rgba(0,0,0,.3);
+}
+p.puntajenocal{
+	vertical-align:bottom;
+	font-size:2em;
+	background: #000000;
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0px 3px 3px rgba(0,128,0,0.5),0px -1px 1px rgba(0,0,0,.3);
+}
+tabla.gral{
+	width:100%;
+}
+img.equipo_tabla{
+	width:40%;
+}
+tr1{
+    background-color: rgb(58, 58, 62);
+    color: rgb(255, 255, 255);
+    background-position: initial initial;
+    background-repeat: initial initial;
+}
+table.tablaEquipos tr{
+    background-color: rgb(58, 58, 62);
+    color: rgb(255, 255, 255);
+    background-position: initial initial;
+    background-repeat: initial initial;
+}
+
+/*3.-Media Query*/
+
+/*Donde la resolucion sea mayora 1081px*/
+@media(min-width:1081px){
+	p.ti1, p.ti2,a.1{
+		font-size:1.3em;
+		padding:2%;
+	}
+	img.navig{
+		width:10%;
+	}
+	section.menuicono{
+	padding:0 2%;
+	}
+	section.texafu, section.texafu2{
+		text-align:center;
+		width:29%;
+		background:none;
+		display:inline-block;
+		vertical-align:top;
+		padding:1% 1%;
+
+	}
+		section.texafu2{
+			width:62%;
+	}
+	
+}
+/*Donde la resolucion sea menor a 1080*/
+@media(max-width:1080px){
+	p.ti1, p.ti2,a.1{
+		font-size:1.3em;
+		padding:2%;
+	}
+	img.navig{
+		width:10%;
+	}
+	section.menuicono{
+	padding:0 2%;
+	}
+	section.texafu, section.texafu2{
+		text-align:center;
+		width:29%;
+		background:none;
+		display:inline-block;
+		vertical-align:top;
+		padding:1% 1%;
+
+	}
+		section.texafu2{
+			width:62%;
+	}
+
+}
+/*Donde la resolucion sea menor a 800px*/
+@media(max-width:800px){
+	section#icp{
+		padding:1% 0;
+	}
+	section#icp section#ici,section#icp section#icc,section#icp section#icd{
+		display:block;
+		margin: 1% 1%;
+		width:95%;
+	}
+	a.1{
+		font-size:1.3em;
+	}
+
+	section.menuins{
+		width:98%;
+		vertical-align:top;
+		display:block;
+		margin:1%;
+	}
+	section#conins{
+		width:98%;
+		padding:1%;
+	}
+	body#inst{
+		padding:3%;
+	}
+	img.navig{
+	width:10%;
+ 
+	}
+		/*Section para el menu*/
+	section#contmenu{
+		width:100%;
+		padding:0 0;
+	}
+	/*menu nav*/
+	section.menuicono{
+	width:24%;
+	padding:0 0;
+	}
+	section.icononombre{
+		color:white;
+		font-size:1em;
+	}
+	/*Seccion Index Contenido Principal Usuarios*/
+	section#icpusu{
+		width:98%;
+		padding:0% 1%;
+	}
+
+	/*Seccion Index Contenido General Usuarios y contenido derecha*/
+	section.icgralusu,section#icderusu,section.icgralusutabla,section.icgralusucentro{
+		width:98%;
+		display:block;
+		padding:2% 1%;
+	}
+	section#cab{
+		text-align:center;
+	}
+	
+	section.texafu, section.texafu2{
+		width:98%;
+		display:block;
+		padding:1% 1%;
+
+	}
+	section.llena1{
+		width:25%;
+	}
+
+	section.llena2{
+		width:44%;
+	}
+	p.titulo{
+		font-size:.8em;
+	}
+		tabla.gral{
+	width:80%;
+	}
+	img.equipo_tabla{
+		width:30%;
+	}
+	
+	
+}
+
+
+/*Donde la resolucion sea menor a 600px*/
+@media(max-width:600px){
+	section#icp{
+		padding:1% 0;
+	}
+	section#icp section#ici,section#icp section#icc,section#icp section#icd{
+		display:block;
+		margin: 1%;
+	}
+}

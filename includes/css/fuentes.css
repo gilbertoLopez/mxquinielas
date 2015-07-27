@@ -1,0 +1,43 @@
+@font-face{
+	font-family: "Chalet";
+	src: url("../fuentes/chalet/Chalet.eot");
+	src: url("../fuentes/chalet/Chalet.eot?#ieflix") format("embedded-opentype"),
+		url("../fuentes/chalet/Chalet.woff") format("woff"),
+		url("../fuentes/chalet/Chalet.ttf") format("truetype"),
+		url("../fuentes/chalet/Chalet.svg#Chalet") format("svg");
+	font-weight:normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Pecita";
+	src: url("../fuentes/pecita/Pecita.eot");
+	src: url("../fuentes/pecita/Pecita.eot?#ieflix") format("embedded-opentype"),
+		url("../fuentes/pecita/Pecita.woff") format("woff"),
+		url("../fuentes/pecita/Pecita.ttf") format("truetype"),
+		url("../fuentes/pecita/Pecita.svg#Pecita") format("svg");
+	font-weight:normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Capture it";
+	/*src: url("../fuentes/capture_it/Captureit.eot");*/
+	src: url("../fuentes/capture_it/Captureit.eot?#ieflix") format("embedded-opentype"),
+		url("../fuentes/capture_it/Captureit.woff") format("woff"),
+		url("../fuentes/capture_it/Captureit.ttf") format("truetype"),
+		url("../fuentes/capture_it/captureit.svg#captureit") format("svg");
+	font-weight:normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Hotel_Coral_Essex";
+	src: url("../fuentes/hotel_coral_essex/Hotel_Coral_Essex.eot");
+	src: url("../fuentes/hotel_coral_essex/Hotel_Coral_Essex.eot?#ieflix") format("embedded-opentype"),
+		url("../fuentes/hotel_coral_essex/Hotel_Coral_Essex.woff") format("woff"),
+		url("../fuentes/hotel_coral_essex/Hotel_Coral_Essex.ttf") format("truetype"),
+		url("../fuentes/hotel_coral_essex/Hotel_Coral_Essex.svg#Hotel_Coral_Essex") format("svg");
+	font-weight:normal;
+	font-style: normal;
+}
