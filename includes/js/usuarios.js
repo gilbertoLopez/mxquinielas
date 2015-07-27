@@ -228,7 +228,7 @@ function ganador(){
         $("td[data-value='"+max+"']").parent().addClass("color2");
     }
 }
-/*/===================================================================== funcion de cuenta regresiva
+//===================================================================== funcion de cuenta regresiva
 
 function cuenta() {
     var fechaP = new Array();
@@ -287,6 +287,65 @@ function cuenta() {
     }
     regresivo();
 }
+
+
+function timekeeper(){
+        $(".timekeeper").each(function(){
+            var time = $(this).attr("data-time").split(":");
+            var now = new Date();
+            var tk   = new Date();
+            tk.setHours(time[0]);
+            tk.setMinutes(time[1]);
+            tk.setSeconds(time[2]);
+            var hour = (tk.getHours()-now.getHours())-1;
+            var min  = (tk.getMinutes()-now.getMinutes())+59;
+            var sec  = (tk.getSeconds()-now.getSeconds())+60;
+            if (min > 59) {
+                hour++;
+                min = min-60;
+            }
+            if(hour < 0 ){
+                hour = (hour * -1 ) - 1;
+                min = 59 - min;
+                sec = now.getSeconds();
+            }
+            sec = sec == 60 ? 0 : sec;
+            $(this).html(clockFormat(hour)+":"+clockFormat(min)+":"+clockFormat(sec));  
+            $(".now").html(clockFormat(now.getHours())+":"+clockFormat(now.getMinutes())+":"+clockFormat(now.getSeconds()));
+        });
+        setTimeout(timekeeper,1000);
+    }
+
+    function timekeeper2(){
+        var timeK = [];
+        var index = 0;
+        $(".timekeeper").each(function(){
+            var time = $(this).attr("data-time").split(":");
+            timeK[index] = new Date();
+            timeK[index].setHours(time[0]);
+            timeK[index].setMinutes(time[1]);
+            timeK[index].setSeconds(time[2]);
+            var hour = (tk.getHours()-now.getHours())-1;
+            var min  = (tk.getMinutes()-now.getMinutes())+59;
+            var sec  = (tk.getSeconds()-now.getSeconds())+60;
+            if (min > 59) {
+                hour++;
+                min = min-60;
+            }
+            if(hour < 0 ){
+                hour = (hour * -1 ) - 1;
+                min = 59 - min;
+                sec = now.getSeconds();
+            }
+            sec = sec == 60 ? 0 : sec;
+            $(this).html(clockFormat(hour)+":"+clockFormat(min)+":"+clockFormat(sec));  
+            $(".now").html(clockFormat(now.getHours())+":"+clockFormat(now.getMinutes())+":"+clockFormat(now.getSeconds()));
+        });
+        setTimeout(timekeeper,1000);
+    }
+    function clockFormat(num) {
+        return String("00" + num).slice(-2);
+    }
 function fReloj(num) {
     return String("00" + num).slice(-2);
 }*/
