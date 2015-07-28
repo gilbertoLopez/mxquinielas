@@ -45,7 +45,9 @@ try{
                 $aux2++;
                 $trPart .= '<td class="bordeDer" style="width:'.$length.'%;">'.sprintf($imgEqui,$value['elocal']) . sprintf($imgEqui,$value['evisit']).'</td>';
                 $rr = empty($value['resultado']) ? '' : $value['gollocal'].' - '.$value['golvisitante'];
-                $trHrPart .= '<td class="date bordeDer" data-date="'.$value['fecha'].'">'.$rr.'<br><span class="hora">'.date('H:i',strtotime($value['hora'])).'</span></td>';
+                /*$trHrPart .= '<td class="date bordeDer" data-date="'.$value['fecha'].'">'.$rr.'<br><span class="timekeeper hora">'.date('H:i',strtotime($value['hora'])).'</span></td>';*/
+                $hPart = date('H:i:s',strtotime($value['hora']));
+                $trHrPart .= '<td class="date bordeDer"><span>'.$hpart.'</span><span class="timekeeper" data-time="'.$hPart.'"></span></td>';
             }
             $trDias = sprintf($trDias,$aux2);
             $trDias .= '<th rowspan="3" class="bordeDer2 color2 verQuin">Total</th></tr>';
