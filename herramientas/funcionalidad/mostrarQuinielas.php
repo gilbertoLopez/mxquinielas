@@ -95,8 +95,9 @@ try{
             $cve    = 'select-'.$id;
             $cveCom = 'table-'.$id;
             $cveChk = 'comodinCHK-'.$id;
-            $CONTENIDO[$X++] =  '<tr>';
-            $CONTENIDO[$X++] =  '<td class="bordeDer color3">'.$hora.'</td>';
+            $CONTENIDO[$X++] =  '<tr class="areaPartido" data-status="'.$stpartido.'">';
+            $msg = empty($stpartido) ? 'Partido cancelado, motivo: '.$motivo_cancel : $hora;
+            $CONTENIDO[$X++] =  '<td class="bordeDer color3" style="width:120px !important; padding:5px;">'.$msg.'</td>';
             $CONTENIDO[$X++] =  '<td><p><input type="radio" id="'.$id.'" name="comodin" value="'.$id.'"/></p></td>';
             $CONTENIDO[$X++] =  '<td><label for="'.$cve.'" value="local"><p><img src="includes/img/escudo/'.$elocal.'.png" title="'.$elocal.'" class="iconoEquipo"/></p><p>'.$elocal.'</p></label></td>';
             $CONTENIDO[$X++] =  '<td class="areaSeleccion">'.

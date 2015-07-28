@@ -72,14 +72,6 @@ form label{
 form label.error{
 	background-color: #e52d19;
 }
-form label.error::before{
-	content: ".";
-	padding: 0 6px;
-	height: 18px;
-	background-color: #FF0000;
-	color: #FF0000;
-	margin-right: 8px;
-}
 form label.success{
 	background-color: #e2fca4;
 	color: #333;

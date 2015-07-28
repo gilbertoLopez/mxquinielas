@@ -1,4 +1,16 @@
 $(function(){
+	jQuery.validator.addMethod("birthdate", function(value, element) {
+		var dateReg = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+		if(dateReg.test(value)){
+			var dateArray = value.split("-");
+			var yyyy = parseInt(dateArray[2],10);
+			var mm   = parseInt(dateArray[1],10);
+			var dd   = parseInt(dateArray[0],10);
+			var date = new Date(yyyy,mm-1,dd,0,0,0,0);
+			return mm === (date.getMonth()+1) && dd === date.getDate() &&  yyyy === date.getFullYear();
+		}
+	  	return false;
+	}); 
 	$("#frmUsuario").validate({
 		onsubmit : false,
 		rules    : {
@@ -6,6 +18,8 @@ $(function(){
 			"apellidopa" : { required : true },
 			"apellidoma" : { required : true },
 			"telefono"   : { required : true, number : true },
+			"email"      : { email    : false },
+			"fechaNac"   : { required : true, birthdate : true },
 			"usuario"    : { required : true, remote : { url : "./herramientas/funcionalidad/ajax.php?type=user", type : "post" } },
 			"clave"      : { required : "#changeUser:checked", remote : { url : "./herramientas/funcionalidad/ajax.php?type=validpass", type : "post" } },
 			"clave1"     : { required : "#changeUser:checked" },
@@ -16,6 +30,8 @@ $(function(){
 			"apellidopa" : { required : "El apellido paterno es requerido" },
 			"apellidoma" : { required : "El apellido materno es requerido" },
 			"telefono"   : { required : "El telefono es requerido", number : "Formato no valido" },
+			"email"      : { email    : "El formato no es correcto" },
+			"fechaNac"   : { required : "La fecha de Nacimiento es requerido", birthdate : "La fecha es incorrecta" },
 			"usuario"    : { required : "El usuario es requerido",  remote : "Usuario no disponible"},
 			"clave"      : { required : "La contrase&ntilde;a es requerida", remote   : "La contrase&ntilde;a actual es erronea" },
 			"clave1"     : { required : "La nueva contrase&ntilde;a es requerida" },
