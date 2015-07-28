@@ -43,11 +43,13 @@ try{
                     $aux2 = 0;
                 }
                 $aux2++;
+                $isNow = $value['fecha'] == date('Y-m-d') ? true : false;
                 $trPart .= '<td class="bordeDer" style="width:'.$length.'%;">'.sprintf($imgEqui,$value['elocal']) . sprintf($imgEqui,$value['evisit']).'</td>';
-                $rr = empty($value['resultado']) ? '' : $value['gollocal'].' - '.$value['golvisitante'];
-                /*$trHrPart .= '<td class="date bordeDer" data-date="'.$value['fecha'].'">'.$rr.'<br><span class="timekeeper hora">'.date('H:i',strtotime($value['hora'])).'</span></td>';*/
+                $tkeeperClass = $isNow ? 'timekeeper' : 'timekeeper';
+                $rr = empty($value['resultado']) ? '' : $value['resultado'].'<br/>'.$value['gollocal'].' - '.$value['golvisitante'];
                 $hPart = date('H:i:s',strtotime($value['hora']));
-                $trHrPart .= '<td class="date bordeDer"><span>'.$hpart.'</span><span class="timekeeper" data-time="'.$hPart.'"></span></td>';
+                $label = $isNow ? ( $rr == '' ? $hPart : $rr ) : $rr;
+                $trHrPart .= '<td class="date bordeDer"><span>'.$label.'</span><span class="'.$tkeeperClass.'" data-time="'.$hPart.'">'.$hPart.'</span></td>';
             }
             $trDias = sprintf($trDias,$aux2);
             $trDias .= '<th rowspan="3" class="bordeDer2 color2 verQuin">Total</th></tr>';
