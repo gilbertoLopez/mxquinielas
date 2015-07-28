@@ -27,6 +27,14 @@
 				<label for="telefono">Telefono</label>
 				<input type="text" name="telefono" id="telefono" placeholder="Telefono" value="<?php echo $tel_usu; ?>"/>
 			</fieldset>
+			<fieldset>
+				<label for="email">Correo electronico</label>
+				<input type="text" name="email" id="email" placeholder="Correo electronico" value="<?php echo $correo_usu; ?>"/>
+			</fieldset>
+			<fieldset>
+				<label for="fechaNac">Fecha de nacimiento</label>
+				<input type="text" name="fechaNac" id="fechaNac" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd-mm-yyyy" value="<?php echo date('d-m-Y',strtotime($nacimiento)); ?>"/>
+			</fieldset>
 			<fieldset class="anchor">
 				<label for="changeUser">Cambiar usuario y / o contrase&ntilde;a </label>
 				<input type="checkbox" name="changeUser" id="changeUser" value="1"/>

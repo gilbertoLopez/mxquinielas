@@ -17,6 +17,16 @@ function menu(){
         });
     }
 }
+function cancelaPartido(){
+    $(".areaPartido").each(function(){
+        var status = parseInt($(this).attr("data-status"));
+        if(status == 0){
+            $(this).find("input,select").attr("disabled","disabled").removeClass('requerido');
+            $(this).find("label").off("click");
+            $(this).find("label").off("dblclick");
+        }
+    });
+}
 $(".menuDesp").on("click",menu);
 $("#menuPrin li").on("click",function(){
     var mod = $(".menu").css("position");
@@ -67,6 +77,7 @@ function accionForm(datos) {
     if (datos.accion == "llenarQuin") {
         $("#areaQuin").show().find("div").html(datos.contenido);
         seleccionaQuin();
+        cancelaPartido();
     }
     else if (datos.accion == "mostrarQuin") {
         $("#areaQuin").show().find("div").html(datos.contenido);

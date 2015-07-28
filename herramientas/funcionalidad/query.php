@@ -3,7 +3,7 @@
  *
  */
 function tablaGeneral(){
-    $sql    = 'SELECT nom_equipo, tot_puntos FROM equipo ORDER BY tot_puntos DESC;';
+    $sql    = 'select * from equipo where liga_participa = 1 order by tot_puntos desc,diferencia_gol desc,gol_fa desc;';
 	$con    = new Conexion($GLOBALS['Host'],$GLOBALS['User'],$GLOBALS['Pass'],$GLOBALS['dbName']);
 	$datos  = $con->query($sql,'arregloAsociado');
 	return $datos;
@@ -46,7 +46,7 @@ function partidos($jornada){
 	return $datos;
 }
 function quiniela($jornada){
-	$sql    = 'SELECT p.cve_partido id,j.dsjornada jorn,j.cve_jornada idjorn,p.fecha,p.hora,eL.nom_equipo elocal,eV.nom_equipo evisit,p.gollocal,p.golvisitante golvisit,p.resultado_partido resul FROM partido p INNER JOIN equipo eL ON p.eq_local = eL.cve_equipo INNER JOIN equipo eV ON p.eq_visitante = eV.cve_equipo INNER JOIN jornada j ON p.Jornada_cve_jornada = j.cve_jornada WHERE Jornada_cve_jornada = %d ORDER BY p.fecha,p.hora,p.cve_partido;';
+	$sql    = 'SELECT p.cve_partido id,p.stpartido,p.motivo_cancel,j.dsjornada jorn,j.cve_jornada idjorn,p.fecha,p.hora,eL.nom_equipo elocal,eV.nom_equipo evisit,p.gollocal,p.golvisitante golvisit,p.resultado_partido resul FROM partido p INNER JOIN equipo eL ON p.eq_local = eL.cve_equipo INNER JOIN equipo eV ON p.eq_visitante = eV.cve_equipo INNER JOIN jornada j ON p.Jornada_cve_jornada = j.cve_jornada WHERE Jornada_cve_jornada = %d ORDER BY p.fecha,p.hora,p.cve_partido;';
 	$con    = new Conexion($GLOBALS['Host'],$GLOBALS['User'],$GLOBALS['Pass'],$GLOBALS['dbName']);
 	$datos  = $con->query(sprintf($sql,$jornada),'arregloAsociado');
 	return $datos;

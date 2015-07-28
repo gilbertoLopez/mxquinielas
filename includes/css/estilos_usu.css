@@ -210,6 +210,9 @@ section.contenedor{
 	position: relative;
 	overflow: auto;
 }
+.areaPartido[data-status="0"]{
+	opacity: 0.4;
+}
 #areaQuin .correcto::before,#areaQuin .incorrecto::before{
 	content: "";
 	display: inline-block;
