@@ -36,6 +36,13 @@ section.contenedor{
 	height: auto;
 	padding: 10px;
 }
+td.cancelado{
+	opacity: 0.3;
+}
+span.cancelado{
+	background-color: red;
+	padding: 5px 0;
+}
 .radial{
 	position: absolute;
 	display: block;

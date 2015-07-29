@@ -33,6 +33,7 @@ try{
             $aux2 = 0;
             $tr = '';
             $idQ = array();
+            $cancel = array();
 
             foreach ($equipos as $value) {
                 $idQ[] = $value['cve_partido'];
@@ -43,15 +44,20 @@ try{
                     $aux  = $value['fecha'];
                     $aux2 = 0;
                 }
+                if($value['stpartido'] == 0){
+                    $cancel[] = $value['cve_partido'];
+                }
                 $aux2++;
                 $isNow = date('Y-m-d',strtotime($value['fecha'])) == date('Y-m-d') ? true : false;
                 $valid = date('Y-m-d',strtotime($value['fecha'])) > date('Y-m-d') ? true : false;
-                $trPart .= '<td class="bordeDer" style="width:'.$length.'%;">'.sprintf($imgEqui,$value['elocal']) . sprintf($imgEqui,$value['evisit']).'</td>';
+                $clase = empty($value['stpartido'])? ' cancelado' : '';
+                $trPart .= '<td class="bordeDer'.$clase.'" style="width:'.$length.'%;">'.sprintf($imgEqui,$value['elocal']) . sprintf($imgEqui,$value['evisit']).'</td>';
                 $tkeeperClass = $isNow ? 'timekeeper' : '';
                 $result = empty($value['resultado']) ? '' : $value['resultado'].'<br/>'.$value['gollocal'].' - '.$value['golvisitante'];
                 $hPart = date('H:i:s',strtotime($value['hora']));
                 $label = $valid ? $hPart : $result;
-                $trHrPart .= '<td class="date bordeDer"><span class="result_'.$value['cve_partido'].'">'.$label.'</span><span class="'.$tkeeperClass.'" data-time="'.$hPart.'"></span></td>';
+                $label = empty($value['stpartido']) ? 'cancelado' : $label;
+                $trHrPart .= '<td class="date bordeDer"><span id="result_'.$value['cve_partido'].'" class="'.$clase.'">'.$label.'</span><span class="'.$tkeeperClass.'" data-time="'.$hPart.'"></span></td>';
             }
             $trDias = sprintf($trDias,$aux2);
             $trDias .= '<th rowspan="3" class="bordeDer2 color2 verQuin">Total</th></tr>';
@@ -63,7 +69,8 @@ try{
                 $CONTENIDO[$X++] = '<tr><td class="bordeDer">'.$value['nombre'].'</td>';
                 for($y = 0; $y < $total2; $y++){
                     $class = !empty($value[$idQ[$y]]['real']) ? 'correcto' : 'incorrecto';
-                    $class = !empty($resultado[$idQ[$y]]) ? $class : 'espera';
+                    $class = !empty($resultado[$idQ[$y]])     ? $class : 'espera';
+                    $class = in_array($idQ[$y],$cancel)       ? 'cancelado' : $class ;
                     $CONTENIDO[$X++] = '<td class="'.$class.'">'.$value[$idQ[$y]]['resultado'].'</td>';
                     $aux2 += $value[$idQ[$y]]['real'];
                 }

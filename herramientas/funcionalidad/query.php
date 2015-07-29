@@ -64,9 +64,11 @@ function actualizarPart($golL,$golV,$resul,$idPart){
 	return $afe;
 }
 function cancelarPart($motivo,$idPart){
-	$sql = 'UPDATE partido SET gollocal=null,golvisitante=null,resultado_partido=null,stpartido=0,motivo_cancel="%s" WHERE cve_partido=%d;';
+	$sql  = 'UPDATE partido SET gollocal=null,golvisitante=null,resultado_partido=null,stpartido=0,motivo_cancel="%s" WHERE cve_partido=%d;';
+	$sql2 = 'UPDATE quiniela SET resultado_quiniela = "-", comodin = null, resultado_real = null where Partido_cve_partido = %d;';
 	$con = new Conexion($GLOBALS['Host'],$GLOBALS['User'],$GLOBALS['Pass'],$GLOBALS['dbName']);
 	$afe = $con->query(sprintf($sql,$motivo,$idPart),'afecto?');
+	$con->query(sprintf($sql2,$idPart));
 	return $afe;
 }
  
