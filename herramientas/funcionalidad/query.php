@@ -40,7 +40,7 @@ function jornada(){
 	return $datos;
 }
 function partidos($jornada){
-	$sql    = 'SELECT p.cve_partido,p.fecha,p.hora,p.resultado_partido resultado,eL.nom_equipo elocal, eV.nom_equipo evisit,p.gollocal,p.golvisitante,stpartido estatus,motivo_cancel motivo FROM partido p INNER JOIN equipo eL on eL.cve_equipo = p.eq_local INNER JOIN equipo eV on eV.cve_equipo = p.eq_visitante WHERE Jornada_cve_jornada = %d ORDER BY p.fecha,p.hora,p.cve_partido;'; 
+	$sql    = 'SELECT p.cve_partido,p.fecha,p.hora,p.stpartido,p.motivo_cancel,p.resultado_partido resultado,eL.nom_equipo elocal, eV.nom_equipo evisit,p.gollocal,p.golvisitante,stpartido estatus,motivo_cancel motivo FROM partido p INNER JOIN equipo eL on eL.cve_equipo = p.eq_local INNER JOIN equipo eV on eV.cve_equipo = p.eq_visitante WHERE Jornada_cve_jornada = %d ORDER BY p.fecha,p.hora;'; 
 	$con    = new Conexion($GLOBALS['Host'],$GLOBALS['User'],$GLOBALS['Pass'],$GLOBALS['dbName']);
 	$datos  = $con->query(sprintf($sql,$jornada),'arregloAsociado');
 	return $datos;

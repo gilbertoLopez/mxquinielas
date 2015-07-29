@@ -117,6 +117,9 @@ section.contenedor{
 .tr-td33 td{
 	width: 33%;
 }
+td.date > span{
+	display: block;
+}
 #INICIO .fIzq{
 	width: 80%;
 }

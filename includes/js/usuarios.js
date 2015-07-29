@@ -83,6 +83,29 @@ function accionForm(datos) {
     else if (datos.accion == "mostrarQuin") {
         $("#areaQuin").show().find("div").html(datos.contenido);
         ganador();
+        timekeeper(function(span,time){
+            $(".now").html(time.now.hour+":"+time.now.minut+":"+time.now.second);
+            if(time.to.type == 1){
+                if(time.to.hour == 0){
+                    if(time.to.minut < 46 ){
+                        $(span).html("Primer tiempo, minuto "+time.to.minut+" * ");
+                    }else{
+                        $(span).html("Medio tiempo * ");
+                    }
+                }else if(time.to.hour == 1){
+                    if(time.to.minut < 46 ){
+                        $(span).html("Segundo tiempo, minuto "+time.to.minut+" * ");
+                    }else{
+                        $(span).html("Partido Finalizado  * ");
+                    }
+                }else{
+                    $(span).html("Partido Finalizado");
+                }
+            }else{
+                $(span).html(time.to.hour+":"+time.to.minut+":"+time.to.second);
+            }
+        });
+        /*ganador();*/
     }
     else if (datos.accion == "torneo") {
         $("#areaTorn").show().find("div").html(datos.contenido);
@@ -240,65 +263,58 @@ function ganador(){
         $("td[data-value='"+max+"']").parent().addClass("color2");
     }
 }
-/*/===================================================================== funcion de cuenta regresiva
+//===================================================================== funcion de cuenta regresiva
 
-function cuenta() {
-    var fechaP = new Array();
-    var campo  = new Array();
-    var fTime  = new Array();
-    $(".hora.partidoAct").each(function(i){
-        var tiempo = $(this).text().split(":");
-        $(this).append("<br/><span></span>");
-        campo[i]  = $(this);
-        fechaP[i] = new Date();
-        fechaP[i].setHours(tiempo[0]);
-        fechaP[i].setMinutes(tiempo[1]);
-        fechaP[i].setSeconds(tiempo[2]);
-        fTime[i] = null;
-    });
-    function regresivo() {
-        var fecha  = new Date();
-        var contador = 0;  
-        $.each(fechaP,function(i,h){
-            contador = i;
-            var hor = (h.getHours()-fecha.getHours())-1;
-            var min = (h.getMinutes()-fecha.getMinutes())+59;
-            var seg = (h.getSeconds()-fecha.getSeconds())+59;
-            if (min > 59) {
-                hor++;
-                min = fReloj(min-60);
-            }
-            
-            if (hor > -1)
-            {
-                $(campo[i]).find('span').html('Falta '+fReloj(hor)+':'+fReloj(min)+':'+fReloj(seg));
-            }else
-            {
-                if (hor == -1) {
-                    if (min < 46) {
-                        $(campo[i]).find('span').html('1er Tiempo, min. '+fReloj(min));
-                    }
-                    else if (min <= 59 ) {
-                        $(campo[i]).find('span').html('Medio tiempo');
-                    }
-                }
-                else if((hor == -2)){
-                    if (min < 46) {
-                        $(campo[i]).find('span').html('2do Tiempo, min. '+fReloj(min));
-                    }
-                    else{
-                        $(campo[i]).html('');
-                    }
-                }
-                else{
-                    $(campo[i]).html('');
-                }
-            }
-        });
-            setTimeout(regresivo,1000);
+function timekeeper(callback){
+    if(callback === undefined){
+        callback = function(){};
     }
-    regresivo();
+    var timeK = [];
+    var spanT = [];
+    var index = 0;
+    var clockFormat = function clockFormat(num) {
+        return String("00" + num).slice(-2);
+    }
+    $(".timekeeper").each(function(){
+        var time     = $(this).attr("data-time").split(":");
+        spanT[index] = this;
+        timeK[index] = new Date();
+        timeK[index].setHours(time[0]);
+        timeK[index].setMinutes(time[1]);
+        timeK[index].setSeconds(time[2]);
+        index++;
+    });
+    var tKeeper = function tKeeper(){
+        var now = new Date();
+        $.each(timeK,function(key,tk){
+            var type = 0;
+            var hour = (tk.getHours()-now.getHours())-1;
+            var min  = (tk.getMinutes()-now.getMinutes())+59;
+            var sec  = (tk.getSeconds()-now.getSeconds())+60;
+            if (min > 59) {
+                hour++;
+                min = min - 60;
+            }
+            if(hour < 0 ){
+                hour = (hour * -1 ) - 1;
+                min  = 59 - min;
+                sec  = now.getSeconds();
+                type = 1;
+            }
+            sec = sec == 60 ? 0 : sec;
+            callback(spanT[key],{
+                now : { 
+                    hour   : clockFormat(now.getHours()), 
+                    minut  : clockFormat(now.getMinutes()), 
+                    second : clockFormat(now.getSeconds()) 
+                }, to : {
+                    hour   : clockFormat(hour),
+                    minut  : clockFormat(min),
+                    second : clockFormat(sec),
+                    type   : type
+                }
+            });
+        });
+        setTimeout(tKeeper,1000);
+    }.call();
 }
-function fReloj(num) {
-    return String("00" + num).slice(-2);
-}*/
