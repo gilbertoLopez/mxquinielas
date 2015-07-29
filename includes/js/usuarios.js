@@ -21,7 +21,8 @@ function cancelaPartido(){
     $(".areaPartido").each(function(){
         var status = parseInt($(this).attr("data-status"));
         if(status == 0){
-            $(this).find("input,select").attr("disabled","disabled").removeClass('requerido');
+            $(this).find("input").attr("disabled","disabled");
+            $(this).find("select").html("<option>cancelado</option>").attr("readonly","readonly").removeClass('requerido');
             $(this).find("label").off("click");
             $(this).find("label").off("dblclick");
         }

@@ -7,7 +7,7 @@ $id_usuario = $_SESSION['IDUSU'];
 $id_jornada = $_POST['idJornada'];
 $id_comodin = $_POST['comodin'];
 $resultado  = array('status'=>'OK','mns'=>'Registro almacenado con exito');
-
+print_r($_POST);
 $quiniela = array();
 $i = 0;
 foreach($_POST as $nombre => $valor)
@@ -25,6 +25,7 @@ foreach($_POST as $nombre => $valor)
 }
 $datosQuin  = implode(',',$quiniela);
 $sqlQuiniel = 'INSERT INTO quiniela VALUES '.$datosQuin.';';
+echo $sqlQuiniel; exit;
 $con        = new Conexion($Host,$User,$Pass,$dbName);
 $r1         = $con->query($sqlQuiniel,'afecto?');
 if(empty($r1))

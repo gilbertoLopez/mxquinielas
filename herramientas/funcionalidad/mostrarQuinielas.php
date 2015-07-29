@@ -15,7 +15,7 @@ try{
     $valida    = validaQuinielaLLena($jornada,$idusuario);
     $valida2   = validaPeriodo($jornada);
     
-    if( !empty($valida) || empty($valida2) )
+    if( /*!empty($valida) || empty($valida2)*/ false )
     {
         $respuesta['accion'] = 'mostrarQuin';
         $equipos  = partidos($jornada);
