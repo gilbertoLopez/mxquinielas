@@ -63,7 +63,32 @@ var resultadosPart = function(){
 }
 $("#actResult").on("click",resultadosPart);
 $("#cJornada").on("change",resultadosPart);
-
+function cronometro(){
+    timekeeper(function(span,time){
+        $(".now").html(time.now.hour+":"+time.now.minut+":"+time.now.second);
+        if(time.to.type == 1){
+            if(time.to.hour == 0){
+                if(time.to.minut < 46 ){
+                    $(span).html("Primer tiempo, minuto "+time.to.minut+" * ");
+                }else{
+                    $(span).html("Medio tiempo * ");
+                }
+            }else if(time.to.hour == 1){
+                if(time.to.minut < 46 ){
+                    $(span).html("Segundo tiempo, minuto "+time.to.minut+" * ");
+                }else{
+                    $(span).html("Partido finalizado  * ");
+                }
+            }else{
+                $(span).html("Partido finalizado");
+                $(span).removeClass("timekeeper");
+                cronometro();
+            }
+        }else{
+            $(span).html("Falta "+time.to.hour+":"+time.to.minut+":"+time.to.second);
+        }
+    });
+}
 $("form.ajax").on("submit",function(){
     var $form  = $(this);
     var url    = $form.attr("action");
@@ -83,28 +108,7 @@ function accionForm(datos) {
     else if (datos.accion == "mostrarQuin") {
         $("#areaQuin").show().find("div").html(datos.contenido);
         ganador();
-        timekeeper(function(span,time){
-            $(".now").html(time.now.hour+":"+time.now.minut+":"+time.now.second);
-            if(time.to.type == 1){
-                if(time.to.hour == 0){
-                    if(time.to.minut < 46 ){
-                        $(span).html("Primer tiempo, minuto "+time.to.minut+" * ");
-                    }else{
-                        $(span).html("Medio tiempo * ");
-                    }
-                }else if(time.to.hour == 1){
-                    if(time.to.minut < 46 ){
-                        $(span).html("Segundo tiempo, minuto "+time.to.minut+" * ");
-                    }else{
-                        $(span).html("Partido Finalizado  * ");
-                    }
-                }else{
-                    $(span).html("Partido Finalizado");
-                }
-            }else{
-                $(span).html(time.to.hour+":"+time.to.minut+":"+time.to.second);
-            }
-        });
+        cronometro();
         /*ganador();*/
     }
     else if (datos.accion == "torneo") {

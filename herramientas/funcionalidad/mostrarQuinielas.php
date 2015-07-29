@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('America/Mexico_City');
 require_once '../config/configdb.php';
 require_once '../clases/Conexion.class.php';
 require_once 'query.php';
@@ -15,7 +16,7 @@ try{
     $valida    = validaQuinielaLLena($jornada,$idusuario);
     $valida2   = validaPeriodo($jornada);
     
-    if( /*!empty($valida) || empty($valida2)*/ false )
+    if( !empty($valida) || empty($valida2) )
     {
         $respuesta['accion'] = 'mostrarQuin';
         $equipos  = partidos($jornada);
@@ -43,13 +44,14 @@ try{
                     $aux2 = 0;
                 }
                 $aux2++;
-                $isNow = $value['fecha'] == date('Y-m-d') ? true : false;
+                $isNow = date('Y-m-d',strtotime($value['fecha'])) == date('Y-m-d') ? true : false;
+                $valid = date('Y-m-d',strtotime($value['fecha'])) > date('Y-m-d') ? true : false;
                 $trPart .= '<td class="bordeDer" style="width:'.$length.'%;">'.sprintf($imgEqui,$value['elocal']) . sprintf($imgEqui,$value['evisit']).'</td>';
-                $tkeeperClass = $isNow ? 'timekeeper' : 'timekeeper';
-                $rr = empty($value['resultado']) ? '' : $value['resultado'].'<br/>'.$value['gollocal'].' - '.$value['golvisitante'];
+                $tkeeperClass = $isNow ? 'timekeeper' : '';
+                $result = empty($value['resultado']) ? '' : $value['resultado'].'<br/>'.$value['gollocal'].' - '.$value['golvisitante'];
                 $hPart = date('H:i:s',strtotime($value['hora']));
-                $label = $isNow ? ( $rr == '' ? $hPart : $rr ) : $rr;
-                $trHrPart .= '<td class="date bordeDer"><span>'.$label.'</span><span class="'.$tkeeperClass.'" data-time="'.$hPart.'">'.$hPart.'</span></td>';
+                $label = $valid ? $hPart : $result;
+                $trHrPart .= '<td class="date bordeDer"><span class="result_'.$value['cve_partido'].'">'.$label.'</span><span class="'.$tkeeperClass.'" data-time="'.$hPart.'"></span></td>';
             }
             $trDias = sprintf($trDias,$aux2);
             $trDias .= '<th rowspan="3" class="bordeDer2 color2 verQuin">Total</th></tr>';
